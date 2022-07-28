@@ -1,0 +1,39 @@
+<h1>SmartLock Monitor</h1>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- <select class="form-control" name="topic" id="topic" ngModel required
+            #topic="ngModel">
+            <option value="" selected disabled hidden>Choose door</option>
+            <option [value]="door.id" *ngFor="let door of doors">{{ door.name }}</option>
+          </select> -->
+    </div>
+  </div>
+</div>
+
+<!-- <button class="btn btn-primary" type="button" (click)="subscribeNewTopic()">Subscribe to topic</button> -->
+
+<div class="container">
+  <div class="row">
+    <div #doorstatus>
+      <!-- The door is {{ doorState }}. -->
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div #msglog>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12 monitor" *ngFor="let door of doors; let i = index" [ngStyle]="{'color': door.state=='open' ? 'green' : 'red' }">
+      {{ door.name }} is {{ door.state }}.
+      <hr>
+    </div>
+  </div>
+</div>
+

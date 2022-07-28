@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  mqtt:
+    container_name: mqtt
+    image: eclipse-mosquitto:2.0.11
+    restart: always
+    volumes:
+      - /home/melissav/mosquitto/config:/mosquitto/config
+      - /home/melissav/mosquitto/data:/mosquitto/data
+      - /home/melissav/mosquitto/log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001

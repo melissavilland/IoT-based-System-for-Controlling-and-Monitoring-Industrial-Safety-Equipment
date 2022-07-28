@@ -1,0 +1,17 @@
+<h1>Authorized Accounts</h1>
+<hr>
+
+<div class="col-xs-12 col-md-6 col-md-offset-3 font-large">
+
+  <div class="list-group">
+    <div class="list-group-item-heading">
+      Your role is: {{ role }}. You are authorized to:
+    </div>
+    <hr>
+    <ul>
+      <li class="list-group-item" *ngIf="role == 'admin'">Open the locks.</li>
+      <li class="list-group-item" *ngIf="role == 'admin'">Close the locks.</li>
+      <li class="list-group-item" *ngIf="role == 'admin' || role == 'user'">Monitor the locks.</li>
+    </ul>
+  </div>
+</div>

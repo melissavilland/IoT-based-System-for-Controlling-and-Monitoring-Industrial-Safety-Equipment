@@ -1,0 +1,36 @@
+<h1>SmartLock Control</h1>
+<hr>
+<div class="container control" *ngIf="role == 'admin'">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSendMessage()" #f="ngForm">
+        <div class="form-group">
+          <label for="doors">Choose the door you want to control.</label>
+          <select class="form-control" name="topic" id="topic" ngModel required
+            #topic="ngModel">
+            <option value="" selected disabled hidden>Choose door</option>
+            <option [value]="door.id" *ngFor="let door of doors">{{ door.name }}</option>
+          </select>
+        </div>
+        <hr>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <select class="form-control" name="message" id="message" ngModel required #message="ngModel">
+            <option value="" selected disabled hidden>Choose command</option>
+            <option value="close">Close</option>
+            <option value="open">Open</option>
+          </select>
+        </div>
+        <div>
+          <button class="btn btn-primary" [disabled]="!f.valid" type="button" (click)="onSendMessage()">Send</button>
+        </div>
+      </form>
+      <hr>
+    </div>
+  </div>
+</div>
+<div class="container control" *ngIf="role == 'user'">
+  <div class="row">
+    Unfortunately you do not have rights to control the locks.
+  </div>
+</div>
